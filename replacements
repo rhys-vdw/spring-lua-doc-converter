@@ -9,7 +9,7 @@ s/@(number|bool|string)/@param \\1/g
 /@/s/bool\\b/boolean/g
 
 # -- Table --
-s/\\{\\[(.*)\\]=(.*),\\.\\.\\.\\}/table<\\1, \\2>/g
+s/\\{\\[(.*)\\]=(.*),\\.\\.\\.\\}/table<\\1,\\2>/g
 
 # -- Arrays --
 # {a|b,...} -> (a|b)[]
