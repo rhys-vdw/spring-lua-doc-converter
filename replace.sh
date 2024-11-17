@@ -6,4 +6,4 @@ if [[ $# -eq 2 ]] ; then
   file="$2"
 fi
 
-grep -v "^#" replacements | xargs -I % sed -i -r '%' $file
+grep -v "^#" "`dirname $0`"/replacements | xargs -I % sed -i -r '%' $file
