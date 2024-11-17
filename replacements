@@ -1,0 +1,32 @@
+# -- Different tags --
+
+s/@tparam/@param/g
+s/@treturn/@return/g
+s/@table/@class/g
+s/@(number|bool|string)/@param \\1/g
+
+# -- Type aliases --
+/@/s/bool\\b/boolean/g
+
+# -- Table --
+s/\\{\\[(.*)\\]=(.*),\\.\\.\\.\\}/table<\\1, \\2>/g
+
+# -- Arrays --
+# {a|b,...} -> (a|b)[]
+s/\\{(.*\\|.*),\\.\\.\\.\\}/(\\1)[]/g
+# This one seems to be typo, but there are a few.
+# {[a],...} -> a[]
+s/\\{\\[(.*)\\],\\.\\.\\.\\}/\\1[]/g
+# {a,...} -> a[]
+s/\\{(.*),\\.\\.\\.\\}/\\1[]/g
+
+# -- Optionals --
+
+# @param bool[opt=false] foo -> @param bool? foo (Default: false)
+s/(@.*?)(\\w+)\\[opt=(.*)\\]\\s+(\\w+)/\\1\\2? \\4 (Default: \\3)/g
+s/\\[opt=true\\]/?/g
+s/\\[opt\\]/?/g
+
+# -- Unsupported --
+/@module/d
+/@section/d
