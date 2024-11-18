@@ -28,4 +28,3 @@ s/\{(.*),\.\.\.\}/\1[]/g
 
 # -- Unsupported --
 /@module/d
-/@section/d
