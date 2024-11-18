@@ -3,7 +3,6 @@
 # @tparam type name -> @param name type
 s/@tparam\s+([^ ]+)\s+([^ ]+)/@param \2 \1/g
 s/@treturn/@return/g
-s/@table/@class/g
 s/@(number|bool|string)(\[.*\])?\s+(\w+)/@param \3 \1\2/g
 
 # -- Type aliases --
