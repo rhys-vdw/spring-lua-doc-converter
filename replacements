@@ -24,7 +24,7 @@ s/\{(.*),\.\.\.\}/\1[]/g
 # -- Optionals --
 
 # @param bool[opt=false] foo -> @param bool? foo (Default: false)
-s/(@.*?)(\w+)\[opt=(.*)\]\s+(\w+)/\1\2? \4 (Default: \3)/g
+/@param/s/\[opt=(.*)\]/? (Default: \1)/g
 /@/s/\[opt\]/?/g
 
 # -- Unsupported --
